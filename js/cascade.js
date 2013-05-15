@@ -82,9 +82,13 @@
 	  		  	if(fallsMaxHeight != _layout[i][1]){
 	  		  		fallsClone = falls.cloneNode();
 	  		  		fallsHeight = fallsMaxHeight - this.options.margin - _layout[i][1];
-	  		  		fallsClone.style.cssText = 'left: ' + _layout[i][0] + 'px; ' + 'top: ' + _layout[i][1] + 'px; height: ' + fallsHeight + 'px;';
+	  		  		// fallsClone.style.cssText = 'left: ' + _layout[i][0] + 'px; ' + 'top: ' + _layout[i][1] + 'px; height: ' + fallsHeight + 'px;';
 	  		  		
-	  		  		this.$element.append(fallsClone);
+	  		  		this.$element.append($(fallsClone).animate({
+	  		  			left: _layout[i][0] + 'px',
+	  		  			top: _layout[i][1] + 'px',
+	  		  			height: fallsHeight + 'px'
+	  		  		}));
 	  		  	}
 	  		  }
 	  }
