@@ -34,7 +34,11 @@
 	  		  for(; i < _num; i++){
 	  		  	_layout.push([i * fallsWidth, 0]);
 	  		  }
-	  		  
+	  		  // 2016-09-20 18:47:42 解决加载后找不到this.$element从而导致windth过小报错
+                if (boxWidth < fallsWidth) {
+                // 如果容器宽度小于box宽度，那么取设备屏幕宽度
+                  boxWidth = $(window).width();
+                }
 	  		  $items.each(function(){
 	  		  	var $item = $(this)
 	  		  	  ,	fallsHeight = $item.outerHeight() + _options.margin
