@@ -69,7 +69,11 @@
             this.num = _num;
         },
         box: function() {
-            this.$element.height(this.getFallsMaxHeight());
+            // @花夏 解決獲取高度總是差那麼一點 2016-11-17 11:23:46
+            var me = this;
+            setTimeout(function () {
+                me.$element.height(me.getFallsMaxHeight());
+            });
         },
         endDecorate: function() {
             var _layout = this.layout,
